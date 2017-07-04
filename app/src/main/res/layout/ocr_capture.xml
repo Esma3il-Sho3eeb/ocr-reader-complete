@@ -1,52 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/topLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:keepScreenOn="true"
-    android:orientation="vertical">
 
-    <com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview
-        android:id="@+id/preview"
+    >
+
+    <LinearLayout
+
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        android:orientation="vertical">
 
-        <com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay
-            android:id="@+id/graphicOverlay"
+        <com.ecsm.android.readForMe.camera.CameraSourcePreview
+            android:id="@+id/preview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-    </com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview>
+            <com.ecsm.android.readForMe.camera.GraphicOverlay
+                android:id="@+id/graphicOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </com.ecsm.android.readForMe.camera.CameraSourcePreview>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mStatusView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end|top"
+        android:background="@drawable/round_button_red"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/activity_vertical_margin"
         android:layout_margin="@dimen/activity_horizontal_margin">
+
+        <ImageButton
+            android:id="@+id/mPrevButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/mPlayPauseButton"
+            android:background="#0000"
+            android:contentDescription="@string/play_pause_button"
+            android:src="@drawable/button_previous"/>
 
         <ImageButton
             android:id="@+id/mPlayPauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
             android:background="#0000"
             android:contentDescription="@string/play_pause_button"
             android:src="@drawable/ic_play"/>
 
         <ImageButton
-            android:id="@+id/mDetectText"
+            android:id="@+id/mNextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/mPlayPauseButton"
             android:background="#0000"
-            android:contentDescription="@string/start_detection"
-            android:src="@mipmap/find_text"
-            android:textColor="#fff"/>
+            android:contentDescription="@string/play_pause_button"
+            android:src="@drawable/button_next"/>
+
+        <!--<ImageButton-->
+        <!--android:id="@+id/mDetectText"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_marginStart="12dp"-->
+        <!--android:background="#0000"-->
+        <!--android:contentDescription="@string/start_detection"-->
+        <!--android:src="@mipmap/find_text"-->
+        <!--android:textColor="#fff"/>-->
     </RelativeLayout>
-</LinearLayout>
+</FrameLayout>
